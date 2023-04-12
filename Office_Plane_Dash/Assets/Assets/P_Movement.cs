@@ -13,8 +13,8 @@ public class P_Movement : MonoBehaviour
 
     private void Awake()
     {
-      rigidbody = GetComponent<Rigidbody>();
-    }      
+        rigidbody = GetComponent<Rigidbody>();
+    }
 
     void Start()
     {
@@ -28,13 +28,13 @@ public class P_Movement : MonoBehaviour
             lastMousePos = Input.mousePosition;
             newPosition = new Vector3(newPosition.x, 0, newPosition.y);
             Vector3 moveForce = Vector3.ClampMagnitude(newPosition, clampDelta);
-            rigidbody.AddForce((-moveForce * sensitivity - rigidbody.velocity / 5f),ForceMode.VelocityChange);
-        } 
+            rigidbody.AddForce((-moveForce * sensitivity - rigidbody.velocity / 5f), ForceMode.VelocityChange);
+        }
         rigidbody.velocity.Normalize();
     }
     //Update is called once per frame  
     void Update()
     {
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -bound, bound), transform.position.y, transform.position.z); 
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -bound, bound), transform.position.y, transform.position.z);
     }
 }
